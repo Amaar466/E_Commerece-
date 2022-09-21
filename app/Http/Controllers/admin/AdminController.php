@@ -4,7 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\Product;
 class AdminController extends Controller
 {
     /**
@@ -24,7 +24,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.product.addproduct');
     }
 
     /**
@@ -35,7 +35,24 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->all());
+        $product= new Product();
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $ext;
+            $file->move('assets/upload/productimage/', $filename);
+
+            $product->image = $filename;
+        }
+
+        $product->name= $request['name'];
+        $product->price= $request['price'];
+        $product->category= $request['category'];
+        $product->gallery= $request['gallery'];
+        $product->description= $request['description'];
+        $product->save();
+        return redirect()->route('show.index');
     }
 
     /**

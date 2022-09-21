@@ -12,12 +12,17 @@
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
-
-        @include('admin.layout.inc.navbar')
-        <div id="layoutSidenav">
+    @include('admin.layout.inc.navbar')
+    <div id="layoutSidenav">
         @include('admin.layout.inc.sidenav')
-       
-@yield('content')
+        <div id="layoutSidenav_content">
+                <main>
+     
+       @yield('content')
+
+       </main>
+       @include('admin.layout.inc.footer')
+       </div>
         </div>
        
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

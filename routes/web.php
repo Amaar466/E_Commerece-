@@ -24,3 +24,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // Route for Admin
 Route::get('/dashboard',[AdminController::class,'index'])->name('dashboard.index');
+Route::get('/add-product',[AdminController::class,'create'])->name('add.index');
+Route::post('/store-product',[AdminController::class,'store'])->name('store.index');
+Route::get('/show-product',[AdminController::class,'show'])->name('show.index');
