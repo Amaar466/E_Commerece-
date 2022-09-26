@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Product;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class CartController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-     
-        return view('welcome');
+        //
     }
 
     /**
@@ -24,11 +22,9 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function detail($id)
+    public function create()
     {
-        $product = Product::find($id);
-        return view('frontend.detailproduct',compact('product'));
-        
+        //
     }
 
     /**
@@ -37,13 +33,11 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function search(Request $request)
+    public function addtocart(Request $request)
     {
-       //dd($request->all());
-       $product = Product::where('name', 'like' , '%' , $request->input('search'). ' %')->get();
-       dd($product); 
-       return view('frontend.search',compact('product'));
-    }
+       dd($request->all());
+       
+}
 
     /**
      * Display the specified resource.

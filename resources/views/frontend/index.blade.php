@@ -42,10 +42,13 @@
     <h1 class="text-center">Trending Product</h1>
 <div class="row">
 @foreach($product as $pro)
+
 <div class="col-lg-4  mt-4">
-    <img src="{{asset('assets/upload/productimage/'.$pro->image)}}" class="d-block w-100 " style="height:100px;" alt="...">
-    <h5 style="font-size:20px;">{{$pro->name}}</h5>
-      <p>{{$pro->description}}</p>
+    <a href="{{ route('detail.index', [$pro->id])}}">
+       
+    <img src="{{asset('assets/upload/productimage/'.$pro->image)}}" class="d-block w-100 " style="height:200px;" alt="...">
+    <h5 style="font-size:20px;" class="text-center">{{$pro->name}}</h5>
+    </a>
 </div>
 @endforeach
 </div>
