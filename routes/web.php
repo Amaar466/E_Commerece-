@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\frontend\FrontController;
+use App\Http\Controllers\frontend\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -15,12 +16,14 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/home',[FrontController::class,'index']);
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+//Route for Home
+Route::get('/',[UserController::class,'index'])->name('home.index');
+Route::get('/home1',[FrontController::class,'index']);
+//Route for Auth
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // Route for Admin
 Route::get('/dashboard',[AdminController::class,'index'])->name('dashboard.index');

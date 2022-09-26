@@ -7,7 +7,7 @@
 <div class="card mt-4">
     <div class="card-header">
     <div class=" d-md-flex justify-content-md-end">
-  <button class="btn btn-primary me-md-2 " type="button"><a href="{{url('add.index')}}" class="text-white ">Add Product</a></button>
+  <button class="btn btn-primary me-md-2 " type="button"><a href="{{route('add.index')}}" class="text-white ">Add Product</a></button>
   
 </div>
         <h4>View Product</h4>

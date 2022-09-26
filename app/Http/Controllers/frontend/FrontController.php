@@ -4,7 +4,7 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\Product;
 class FrontController extends Controller
 {
     /**
@@ -14,7 +14,9 @@ class FrontController extends Controller
      */
     public function index()
     {
-        return view('frontend.index');
+        $product = Product::all();
+        //dd($product);
+        return view('frontend.index',compact('product'));
     }
 
     /**
