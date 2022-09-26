@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Product;
-class AdminController extends Controller
+
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-       return view('admin.index');
+        //
     }
 
     /**
@@ -24,7 +23,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        return view('admin.product.addproduct');
+        //
     }
 
     /**
@@ -35,24 +34,7 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
-        $product= new Product();
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $ext = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $ext;
-            $file->move('assets/upload/productimage/', $filename);
-
-            $product->image = $filename;
-        }
-
-        $product->name= $request['name'];
-        $product->price= $request['price'];
-        $product->category= $request['category'];
-        $product->gallery= $request['gallery'];
-        $product->description= $request['description'];
-        $product->save();
-        return redirect()->route('show.index');
+        //
     }
 
     /**
@@ -61,11 +43,9 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
-        $product = Product::all();
-        //dd($product);
-        return view('admin.product.viewproduct',compact('product'));
+        //
     }
 
     /**

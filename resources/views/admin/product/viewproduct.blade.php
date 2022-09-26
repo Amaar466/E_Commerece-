@@ -24,27 +24,27 @@
                         <th >ID</th>
                         <th >Product Name</th>
                         <th>Price</th>
-                        <th>Gallary</th>
-                        <th>image</th>
-                        <th >Description</th>
                         
-      
+                        <th>image</th>
+                       <th >Action</th>
                     </tr>
                 </thead>
                 <tbody> 
-                  @foreach
+                 @foreach($product as $final)
                     <tr >
-                        <td></td>
-                        <td></td>
+                        <td>{{$final->id}}</td>
+                        <td>{{$final->name}}</td>
+                        <td>{{$final->price}}</td>
+                       
                         <td>
-                        <img src="" style="width:50px;height:50px;">
+                        <img src="{{asset('assets/upload/productimage/'.$final->image)}}" style="width:50px;height:50px;">
                         </td>
-                        <td></td>
+                       
                         <td><a href="#" class="btn btn-success">Edit</a>
                         <a href="#" class="btn btn-danger">Delete</a>
                     </td>
                     </tr>
-                   
+                   @endforeach
                 </tbody>
             </table>
     </div>
