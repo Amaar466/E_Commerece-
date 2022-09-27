@@ -21,8 +21,8 @@ use Illuminate\Support\Facades\Auth;
 //     return view('welcome');
 // });
 //Route for Home
-Route::get('/',[UserController::class,'index'])->name('home.index');
-Route::get('/home1',[FrontController::class,'index'])->name('home1.index');
+//Route::get('/',[UserController::class,'index'])->name('home.index');
+Route::get('/',[FrontController::class,'index'])->name('home1.index');
 Route::get('/product-detail/{id}',[UserController::class,'detail'])->name('detail.index');
 Route::get('/product-search',[UserController::class,'search'])->name('search.index');
 Route::post('/add-to-cart',[CartController::class,'addtocart'])->name('addtocart.index');

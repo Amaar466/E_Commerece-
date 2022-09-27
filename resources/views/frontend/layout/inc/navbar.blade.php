@@ -1,3 +1,14 @@
+<?php
+use App\Http\Controllers\frontend\UserController;
+use Illuminate\Support\Facades\Auth;
+
+
+  $total=0;
+  
+
+
+
+?>
 <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">E_Commerece</a>
@@ -36,7 +47,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <div style="padding-right: 10px;">
-      <li><a href="#" style="color:black; ">Add to Cart</a></li></div>
+      <li><a href="#" style="color:black; "> Cart Item {{$total}}</a></li></div>
       <li><a href="{{url('/login')}}" style="color:black;">Login</a></li>
       
       </ul>

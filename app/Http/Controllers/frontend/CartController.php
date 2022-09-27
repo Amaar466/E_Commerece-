@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cart;
+use App\Models\Product;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class CartController extends Controller
 {
     /**
@@ -35,8 +37,29 @@ class CartController extends Controller
      */
     public function addtocart(Request $request)
     {
-       dd($request->all());
-       
+       //dd($request->all());
+       $product_id = $request->input('product_id');      
+       if (Auth::check()) {
+           $prod_check = Product::where('id', $product_id)->first();
+           //dd($prod_check);
+           if ($prod_check) {
+               if (Cart::where('product_id', $product_id)->where('user_id', Auth::id())->exists()) {
+                   //dd($prod_check);
+                   return response()->json(['status' => $prod_check->name . " Already Added to Cart"]);
+               } 
+                else{
+           $cart = new Cart();
+           $cart->user_id = Auth::id();       
+           $cart->product_id = $request->input('product_id');       
+           $cart->save();
+           //dd($cart);
+           return response()->json(['status' => $prod_check->name . " Added to Cart"]);
+       }
+   }
+}
+       else{
+           return redirect('/login');
+       }    
 }
 
     /**
